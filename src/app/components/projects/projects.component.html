@@ -1,0 +1,45 @@
+<div class="bg-gray-900 py-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+
+
+    <div class=" grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+      <!-- article - start -->
+      <div *ngFor="let project of projects let i = index" class="flex flex-col overflow-hidden rounded-lg border bg-gray-800">
+        <a href="{{ project.html_url}}" target="_blank"
+          class="group relative block h-48 overflow-hidden bg-gray-200 md:h-64">
+          <img src="assets\icons\project{{ i+1 }}.png"
+            loading="lazy" alt="card"
+            class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+        </a>
+
+        <div class="flex flex-1 flex-col p-4 sm:p-6">
+          <h2 class="mb-2 text-lg font-semibold text-white">
+            <a href="{{ project.html_url}}" target="_blank"
+              class="transition duration-100 hover:text-blue-500 active:text-blue-600"> {{ project.name }}</a>
+          </h2>
+
+          <p class="mb-8 text-gray-400"> {{ project.description }}</p>
+
+          <div class="mt-auto flex items-end justify-between">
+            <div class="flex items-center gap-2">
+              <div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
+                <img src="{{ project.owner.avatar_url }}" loading="lazy" alt="card"
+                  class="h-full w-full object-cover object-center" />
+              </div>
+
+              <div>
+                <span class="block text-blue-500"> {{ project.owner.login }}</span>
+                <span class="block text-sm text-gray-400">{{ project.created_at | date }} </span>
+              </div>
+            </div>
+
+            <a rel="noopener noreferrer"
+              class="inline-block px-2 py-1 text-sm font-semibold rounded-md dark:bg-blue-400 dark:text-gray-900">{{
+              project.language }}</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

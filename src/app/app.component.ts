@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'new-portfolio';
+onSubmit() {
+throw new Error('Method not implemented.');
+}
+  title = 'portfolio';
+contactForm: any;
 }
